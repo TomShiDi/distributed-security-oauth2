@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: uaa-service
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  freemarker:
+    enabled: true
+    suffix: .html
+    request-context-attribute: rc
+    content-type: text/html
+    charset: UTF-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    url: jdbc:mysql://localhost/db_spring_security?useSSL=false&charracterEncoding=utf-8&useUnicode=true&serverTimezone=GMT%2b8
+    username: root
+    password: 15576123138
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+server:
+  port: 53020
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+  use-forward-headers: true
+  servlet:
+    context-path: /uaa
+
+
+
+logging:
+  level:
+    root: debug
+    org:
+      springframework:
+        web: info
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:53000/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types:
+        - text/xml
+        - application/xml
+        - application/json
+      min-request-size: 2048
+    response:
+      enabled: true
