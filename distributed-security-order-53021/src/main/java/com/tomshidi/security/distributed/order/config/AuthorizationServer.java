@@ -18,6 +18,8 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
+ * 客户端信息从哪儿读取 ---> 定义endpoint用于颁发token，token存储策略，客户端支持的token类型配置
+ * ---> 对暴露的endpoint定义一些安全约束
  * @author TomShiDi
  * @description
  * @date 2020/11/14 22:09
@@ -61,7 +63,9 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
+                //  /oauth/token_key公开
                 .tokenKeyAccess("permitAll()")
+                //  /oauth/check_token公开
                 .checkTokenAccess("permitAll()")
                 .allowFormAuthenticationForClients();
     }
