@@ -20,6 +20,17 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
  * 授权服务配置
+ * response_type 类型：code授权码模式，token简化模式
+ * 授权码接口/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_url=https://www.baidu.com
+ * 令牌接口uaa/oauth/token
+ * grant_type 类型：password 账号密码模式，参数client_id，client_secret，grant_type，username，password，redirect_url
+ *                  client_credentials 客户端模式，参数client_id，client_secret，grant_type，无法申请刷新令牌
+ *                  authorization_code 授权码模式，参数client_id，client_secret，grant_type，code，redirect_url
+ * client_id:c1
+ * client_secret:secret
+ * grant_type:authorization_code
+ * code:f53cL0
+ * redirect_url:https://www.baidu.com
  *
  * @author TomShiDi
  * @description
