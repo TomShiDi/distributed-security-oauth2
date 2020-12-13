@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  * @date 2020/12/5 15:18
  **/
-@RestController()
+@RestController
 public class OrderController {
 
     @GetMapping("/r1")

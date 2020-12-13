@@ -1,16 +1,15 @@
-package com.tomshidi.security.distributed.uaa.config;
+package com.tomshidi.security.distributed.order.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * @author TomShiDi
  * @description
- * @date 2020/11/28 19:38
+ * @date 2020年12月13日15:20:39
  **/
 @Configuration
 public class TokenConfig {

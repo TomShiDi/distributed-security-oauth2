@@ -16,7 +16,11 @@ import org.springframework.security.oauth2.provider.code.AuthorizationCodeServic
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import java.util.Arrays;
 
 /**
  * 授权服务配置
@@ -52,6 +56,9 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+
     /**
      * 令牌管理bean
      * @return ·
@@ -62,6 +69,12 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         services.setClientDetailsService(clientDetailsService);
         services.setSupportRefreshToken(true);
         services.setTokenStore(tokenStore);
+
+        // 设置令牌增强enhance
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(jwtAccessTokenConverter));
+        services.setTokenEnhancer(tokenEnhancerChain);
+
         services.setAccessTokenValiditySeconds(7200);
         services.setRefreshTokenValiditySeconds(259200);
         return services;
