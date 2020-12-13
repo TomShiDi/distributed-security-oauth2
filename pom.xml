@@ -10,6 +10,8 @@
     <modules>
         <module>distributed-security-uaa-53020</module>
         <module>distributed-security-order-53021</module>
+        <module>distributed-security-discovery</module>
+        <module>distributed-security-gateway</module>
     </modules>
     <packaging>pom</packaging>
 

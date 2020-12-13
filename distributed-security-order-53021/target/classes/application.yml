@@ -32,12 +32,12 @@ logging:
       springframework:
         web:
 
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:53000/eureka/
-#  instance:
-#    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id}:${server.port}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:53000/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id}:${server.port}
 management:
   endpoints:
     web:
