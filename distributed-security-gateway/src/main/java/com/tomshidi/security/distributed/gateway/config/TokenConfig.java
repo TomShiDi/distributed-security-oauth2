@@ -1,4 +1,4 @@
-package com.tomshidi.security.distributed.uaa.config;
+package com.tomshidi.security.distributed.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 /**
  * @author TomShiDi
  * @description
- * @date 2020/11/28 19:38
+ * @date 2020年12月19日16:33:39
  **/
 @Configuration
 public class TokenConfig {
