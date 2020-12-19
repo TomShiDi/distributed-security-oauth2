@@ -1,6 +1,7 @@
 package com.tomshidi.security.distributed.order.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,8 @@ public class OrderController {
     @GetMapping("/r1")
     @PreAuthorize("hasAnyAuthority('p1')")
     public String r1() {
-        return "访问资源1";
+        String principal = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return principal + " 访问资源1";
     }
 
     @GetMapping("/r2")
