@@ -14,9 +14,9 @@ logging:
       springframework: info
 zuul:
   retryable: true
-  ignored-services: *
+  ignored-services: '*'
   add-host-header: true
-  sensitive-headers: *
+  sensitive-headers: '*'
   routes:
     uaa-service:
       stripPrefix: false

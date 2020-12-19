@@ -1,6 +1,6 @@
 spring:
   application:
-    name: order-server
+    name: order-service
   main:
     allow-bean-definition-overriding: true
 
