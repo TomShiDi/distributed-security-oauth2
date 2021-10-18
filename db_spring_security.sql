@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `oauth_client_details`;
 CREATE TABLE `oauth_client_details` (
-  `client_id` varchar(255) NOT NULL,
+  `client_id` varchar(64) NOT NULL,
   `resource_ids` varchar(255) DEFAULT NULL,
   `client_secret` varchar(255) DEFAULT NULL,
   `scope` varchar(255) DEFAULT NULL,
@@ -83,7 +83,7 @@ INSERT INTO `t_permission` VALUES ('3', 'p3', '测试资源2', '/r/r2');
 DROP TABLE IF EXISTS `t_role`;
 CREATE TABLE `t_role` (
   `id` varchar(32) NOT NULL,
-  `role_name` varchar(255) DEFAULT NULL,
+  `role_name` varchar(64) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
