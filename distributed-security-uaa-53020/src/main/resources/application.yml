@@ -19,7 +19,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost/db_spring_security?useSSL=false&charracterEncoding=utf-8&useUnicode=true&serverTimezone=GMT%2b8
     username: root
-    password: 15576123138
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
 
 
